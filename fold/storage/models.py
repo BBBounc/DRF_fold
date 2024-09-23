@@ -36,10 +36,11 @@ class Supply(models.Model):
     Product = models.ForeignKey(Product, on_delete=models.CASCADE)
     QuantitiProduct = models.PositiveIntegerField()
     Total_price = models.DecimalField(max_digits=10, decimal_places=2, editable=False, default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self,*args, **kwargs):
         self.Total_price = self.Product.price * self.QuantitiProduct
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Товар: {self.Nomenclature} от {self.Organization.name}"
+        return f"Товар: {self.Product} от {self.Organization.name}, создан: {self.created_at.strftime('%Y-%m-%d %H:%M:%S')}"
