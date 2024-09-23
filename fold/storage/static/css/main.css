@@ -1,5 +1,129 @@
-body,header,footer,ul,li{
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background: linear-gradient(135deg, #6e7dff, #4a54f1);
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #35424a; 
+    color: #ffffff; 
+}
+
+footer p {
+    margin: 5px 0; 
+}
+
+footer a {
+    color: #6e7dff; 
+}
+
+footer a:hover {
+    text-decoration: underline; 
+}
+
+.content-section h2 {
+    color: #4a54f1; 
+    font-size: 2em; 
+    margin-bottom: 20px; 
+}
+
+.content-section h3 {
+    color: #35424a; 
+    font-size: 1.5em; 
+    margin-top: 20px; 
+}
+
+.content-section p {
+    line-height: 1.6; 
+    margin-bottom: 15px; 
+}
+
+.features-list {
+    list-style-type: none; 
+    padding-left: 0; 
+}
+
+.features-list li {
+    background-color: #f4f4f4; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+.features-list li:hover {
+    background-color: #e2e2e2; 
+}
+
+@media (max-width: 600px) {
+    .content-section {
+        padding: 20px; 
+    }
+
+    .content-section h2 {
+        font-size: 1.8em; 
+    }
+
+    .content-section h3 {
+        font-size: 1.4em; 
+    }
+}
+.content-section {
+    background-color: #ffffff; 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    margin: 20px auto; 
+    max-width: 800px; 
+}
+
+.additional-info {
+    margin-top: 30px; 
+}
+
+.benefits-list {
+    list-style-type: disc; 
+    padding-left: 20px; 
 }

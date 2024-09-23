@@ -1,11 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}My Stylish Page{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+            <h1>Добро пожаловать на мой сайт</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Главная страница</a></li>
+                    <li><a href="{% url 'information' %}">Информация</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Владислав Макатров. Все права защищены.</p>
+            <p><a href="/privacy">Политика конфиденциальности</a> | 
+               <a href="/terms">Условия использования</a></p>
+        </div>
+    </footer>
 </body>
 </html>
