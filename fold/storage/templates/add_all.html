@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить записи{% endblock %}
+
+{% block content %}
+<section>
+    <div class="content-section">
+        <h2>Добавить новый товар</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="product">
+            {{ product_form.as_p }}
+            <button class="btn" type="submit">Добавить товар</button>
+        </form>
+
+        <h2>Добавить новый склад</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="warehouse">
+            {{ warehouse_form.as_p }}
+            <button class="btn" type="submit">Добавить склад</button>
+        </form>
+
+        <h2>Добавить новую организацию</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="organization">
+            {{ organization_form.as_p }}
+            <button class="btn" type="submit">Добавить организацию</button>
+        </form>
+
+        <h2>Добавить новый тип организации</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="type_organization">
+            {{ type_organization_form.as_p }}
+            <button class="btn" type="submit">Добавить тип организации</button>
+        </form>
+
+        <h2>Добавить новую поставку</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="supply">
+            {{ supply_form.as_p }}
+            <button class="btn" type="submit">Добавить поставку</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
