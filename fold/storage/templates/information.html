@@ -1,3 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}Документация и Отчетность{% endblock %}
+
+
+{% block content %}
+
+<section>
+        {% for supply in postavka %}
+            <div class="content-section">
+                <h1>Номеклатуры: №{{ supply.Nomenclature }}</h1>
+                <p>Организация: {{ supply.Organization }}</p>
+                <p>Склад доставки: {{ supply.Warehouse }}</p>
+                <p>Товар: {{ supply.Product }}</p>
+                <p>Количество товара: {{ supply.QuantitiProduct }}</p>
+                <p>Конечная цена за весь товар: {{ supply.Total_price }}</p>
+                <p>Дата создания документа: {{ supply.created_at }}</p>
+            </div>
+        {% endfor %}
+</section>
+
+{% endblock %}
