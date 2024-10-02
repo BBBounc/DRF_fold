@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from .models import *
+from rest_framework import viewsets
+from .serializers import SupplySerializer
 
 def index(request):
   return render(request, 'index.html')  
@@ -54,3 +56,11 @@ def add_all(request):
         'supply_form': supply_form,
     }
     return render(request, 'add_all.html', context)
+
+
+    # ----api----
+    
+    class SupplyViewSet(viewsets.ModelViewSet):
+        queryset = Supply.objects.all()
+        serializer_class = SupplySerializer
+        
