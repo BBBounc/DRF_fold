@@ -1,13 +1,12 @@
-from django.shortcuts import render,redirect
+# storage/views.py
+from django.shortcuts import render, redirect
 from .forms import *
 from .models import *
 from rest_framework import viewsets
 from .serializers import SupplySerializer
 
 def index(request):
-  return render(request, 'index.html')  
-
-
+    return render(request, 'index.html')
 
 def information(request):
     products = Product.objects.all()
@@ -22,7 +21,7 @@ def information(request):
         'organization': organizations,
         'postavka': supplies
     }
-    return render(request, 'information.html', context)  
+    return render(request, 'information.html', context)
 
 def add_all(request):
     if request.method == 'POST':
@@ -37,10 +36,10 @@ def add_all(request):
             form = TypeOrganizationForm(request.POST)
         elif form_type == 'supply':
             form = SupplyForm(request.POST)
-        
+
         if form.is_valid():
             form.save()
-            return redirect('add_all')  
+            return redirect('add_all')
     else:
         product_form = ProductForm()
         warehouse_form = WarehouseForm()
@@ -57,10 +56,7 @@ def add_all(request):
     }
     return render(request, 'add_all.html', context)
 
-
-    # ----api----
-    
-    class SupplyViewSet(viewsets.ModelViewSet):
-        queryset = Supply.objects.all()
-        serializer_class = SupplySerializer
-        
+# ---- API ----
+class SupplyViewSet(viewsets.ModelViewSet):
+    queryset = Supply.objects.all()
+    serializer_class = SupplySerializer
