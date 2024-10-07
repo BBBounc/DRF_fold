@@ -59,4 +59,4 @@ def add_all(request):
 # ---- API ----
 class SupplyViewSet(viewsets.ModelViewSet):
     queryset = Supply.objects.all()
-    serializer_class = SupplySerializer
+    serializer_class = SupplySerializer 
