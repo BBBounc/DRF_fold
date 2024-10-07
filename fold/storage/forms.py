@@ -47,3 +47,15 @@ class SupplyForm(forms.ModelForm):
             'Product': forms.Select(attrs={'class': 'form-input'}),
             'QuantitiProduct': forms.NumberInput(attrs={'class': 'form-input'}),
         }
+
+class SaleForm(forms.ModelForm):
+    class Meta:
+        model = Sale
+        fields = ['Nomenclature', 'Organization', 'Warehouse', 'Product', 'QuantitiProduct']
+        widgets = {
+            'Nomenclature': forms.TextInput(attrs={'class': 'form-input'}),
+            'Organization': forms.Select(attrs={'class': 'form-input'}),
+            'Warehouse': forms.Select(attrs={'class': 'form-input'}),
+            'Product': forms.Select(attrs={'class': 'form-input'}),
+            'QuantitiProduct': forms.NumberInput(attrs={'class': 'form-input'}),
+        }

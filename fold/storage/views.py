@@ -56,6 +56,19 @@ def add_all(request):
     }
     return render(request, 'add_all.html', context)
 
+def add_sell(request):
+    sale_form = SaleForm(request.POST or None)
+
+    if request.method == 'POST' and sale_form.is_valid():
+        try:
+            sale_form.save()
+            return redirect('add_sale')
+        except ValidationError as e:
+            print(e)
+
+    context = {'sale_form': sale_form}
+    return render(request, 'add_sale.html', context)
+
 # ---- API ----
 class SupplyViewSet(viewsets.ModelViewSet):
     queryset = Supply.objects.all()

@@ -12,6 +12,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('information/', views.information, name='information'),
     path('add_all/', views.add_all, name='add_all'),
+    path('add_sale/', views.add_all, name='add_sale'),
     path('', include(router.urls)),  
 ]
 
